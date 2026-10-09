@@ -1,0 +1,13 @@
+Supplementary check (run after the main benchmark, 2026-10-07).
+Python implementation, n = 800, 0 warm-ups, 1 measured run per process, four processes
+launched back to back (alternating without / with P-core pinning + high priority).
+
+process  setting   time_s     checksum
+1        unpinned  31.904     -10145.17208412008
+2        pinned    40.869     -10145.17208412008
+3        unpinned  43.378     -10145.17208412008
+4        pinned    57.210     -10145.17208412008
+
+Observation: the time grows with every consecutive run independently of pinning,
+which is consistent with the laptop lowering its clock under sustained load
+(power/thermal limits). CPU frequency was not logged, so this is not proven.

@@ -1,0 +1,16 @@
+CPU: 13th Gen Intel(R) Core(TM) i7-13620H
+Physical cores: 10
+Logical processors: 16
+RAM: 16.9 GB
+OS: Windows-10-10.0.26200-SP0
+
+C compiler: gcc (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders, r1) 16.2.0
+C flags: -O2 -std=c11 -static
+Java: java version "24.0.1" 2025-04-15 / Java HotSpot(TM) 64-Bit Server VM (build 24.0.1+9-30, mixed mode, sharing)
+JVM flags: -Xmx3g
+Python: CPython 3.11.9 (C:\Users\danie\AppData\Local\Microsoft\WindowsApps\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\python.exe)
+NumPy (inputs and reference only): 2.2.0
+psutil (memory measurement): 6.1.0
+
+Threads: all three implementations are single-threaded; no numerical library
+is used inside the measured kernels.

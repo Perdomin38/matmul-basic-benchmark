@@ -1,0 +1,7 @@
+# Compiled programs (recreated by scripts/build.py)
+build/
+# Input and test matrices (recreated exactly by generate_inputs.py and verify.py, fixed seeds)
+data/inputs/*.bin
+data/tests/*.bin
+__pycache__/
+*.pyc

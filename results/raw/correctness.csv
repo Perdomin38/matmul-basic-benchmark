@@ -1,0 +1,13 @@
+test,n,language,criterion,max_abs_error,passed,bitwise_equal_to_c
+known_2x2,2,c,exact,0.000e+00,True,True
+known_2x2,2,java,exact,0.000e+00,True,True
+known_2x2,2,python,exact,0.000e+00,True,True
+identity,37,c,exact,0.000e+00,True,True
+identity,37,java,exact,0.000e+00,True,True
+identity,37,python,exact,0.000e+00,True,True
+zero,37,c,exact,0.000e+00,True,True
+zero,37,java,exact,0.000e+00,True,True
+zero,37,python,exact,0.000e+00,True,True
+random_100,100,c,"rtol=1e-09,atol=1e-09",5.329e-15,True,True
+random_100,100,java,"rtol=1e-09,atol=1e-09",5.329e-15,True,True
+random_100,100,python,"rtol=1e-09,atol=1e-09",5.329e-15,True,True

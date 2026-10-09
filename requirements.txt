@@ -1,0 +1,6 @@
+# Used only by the helper scripts (inputs, reference check, memory sampling, analysis).
+# The measured Python implementation (src/python/matmul.py) uses the standard library only.
+numpy==2.2.0
+pandas==2.2.3
+matplotlib==3.9.4
+psutil==6.1.0

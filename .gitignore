@@ -5,3 +5,5 @@ data/inputs/*.bin
 data/tests/*.bin
 __pycache__/
 *.pyc
+# Quick test runs (python run_benchmarks.py ... --output-dir ../results/test_run)
+results/test_run/

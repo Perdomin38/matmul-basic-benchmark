@@ -38,6 +38,13 @@ All three programs share the same command-line interface:
 Input files hold n·n little-endian float64 values in row-major order. Each program
 prints one CSV line per run: `phase,run,time_s,checksum`.
 
+Raw data columns (`results/raw/`):
+- `benchmark_raw.csv`: `language, n, phase (warmup/measured), run, time_s, checksum, checksum_ok`
+- `runs_status.csv`: `language, n, warmups, reps, status, wall_time_s, peak_memory_mb`
+
+Every configuration uses float64 values and runs single-threaded (one thread per process,
+no numerical library inside the kernel), so these two labels are not repeated in each row.
+
 ## Requirements (versions used)
 
 | Tool | Version |

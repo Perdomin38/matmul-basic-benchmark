@@ -27,13 +27,16 @@ MEMORY_SAMPLE_INTERVAL_S = 0.01
 # cores (P-cores) and 12-15 to the 4 efficiency cores (E-cores) (Windows
 # GetSystemCpuSetInformation, EfficiencyClass). An exploratory run without pinning showed
 # large run-to-run variation, so every benchmark process is restricted to the P-cores
-# and given high priority. Set to None on another machine to disable pinning.
+# and given high priority. On another machine these are applied only if the OS allows it
+# (run_benchmarks.py prints a warning and continues otherwise); set to None to disable.
 CPU_AFFINITY = list(range(12))
 HIGH_PRIORITY = True
 
 # ---- Toolchain (fixed settings) ------------------------------------------
 CC = os.environ.get("CC", "gcc")
-C_FLAGS = ["-O2", "-std=c11", "-static"]   # -static: no MinGW DLLs needed at run time
+C_FLAGS = ["-O2", "-std=c11"]
+if os.name == "nt":
+    C_FLAGS.append("-static")   # Windows/MinGW only: no MinGW DLLs needed at run time
 JAVAC = "javac"
 JAVA = "java"
 JVM_FLAGS = ["-Xmx3g"]   # heap cap below the memory budget

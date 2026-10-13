@@ -80,6 +80,31 @@ because the seed is fixed, and `build.py` recompiles the programs.
 quick test should write elsewhere:
 `python run_benchmarks.py --sizes 100 200 --output-dir ../results/test_run`.
 
+### Quick check (about 1 minute)
+
+```bash
+git clone https://github.com/Perdomin38/matmul-basic-benchmark.git
+cd matmul-basic-benchmark/scripts
+pip install -r ../requirements.txt
+python build.py
+python generate_inputs.py
+python verify.py
+python run_benchmarks.py --sizes 100 200 --output-dir ../results/test_run
+```
+
+### Running on another machine
+
+- On Linux or macOS use `python3` if `python` is not Python 3. The C program is linked with
+  `-static` only on Windows (MinGW).
+- CPU pinning to logical CPUs 0-11 and high priority are specific to the test laptop (see
+  `scripts/common.py`). Where the OS does not allow them (macOS, fewer CPUs, no permission),
+  `run_benchmarks.py` prints a warning and runs without them.
+- `build.py` rewrites `results/raw/environment.txt`, and `run_benchmarks.py` without
+  `--output-dir` rewrites the raw CSV files, with the new machine's data. The published
+  results are the ones in the repository (`git checkout -- results` restores them).
+  Times measured on another machine will differ; the report's conclusions apply to the
+  test laptop only.
+
 
 ## Experimental protocol (summary)
 

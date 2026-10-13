@@ -46,10 +46,18 @@ def run_configuration(cmd):
     start = time.perf_counter()
     proc = psutil.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
     # Pinning happens while the program is still loading its inputs (before any timing).
+    # Both settings are machine specific: if the OS does not allow them (e.g. macOS has no
+    # CPU affinity, fewer logical CPUs, or no permission to raise the priority), continue.
     if CPU_AFFINITY is not None:
-        proc.cpu_affinity(CPU_AFFINITY)
+        try:
+            proc.cpu_affinity(CPU_AFFINITY)
+        except (AttributeError, ValueError, psutil.Error) as e:
+            print(f"  warning: CPU pinning not applied on this machine ({e!r})")
     if HIGH_PRIORITY:
-        proc.nice(psutil.HIGH_PRIORITY_CLASS if psutil.WINDOWS else -10)
+        try:
+            proc.nice(psutil.HIGH_PRIORITY_CLASS if psutil.WINDOWS else -10)
+        except psutil.Error as e:
+            print(f"  warning: high priority not applied on this machine ({e!r})")
     peak = 0.0
     status = "OK"
     while proc.poll() is None:

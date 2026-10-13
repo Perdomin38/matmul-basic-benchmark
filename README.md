@@ -7,8 +7,8 @@ Author: Daniel Perdomo Medina.
 memory use of the same textbook O(n³) matrix multiplication implemented in
 Python, Java and C, on one fixed machine?
 
-The report source is `report/report.tex` (LaTeX, figures in `report/figures/`); it is compiled
-to `report/Assignment01_PerdomoMedina_Report.pdf` with pdfLaTeX (e.g. on Overleaf).
+The report is `report/Assignment01_PerdomoMedina_Report.pdf`. Its figures are the ones in
+`results/figures/`, produced by `scripts/analyze.py`.
 
 ## Repository layout
 
@@ -26,7 +26,7 @@ results/raw/            raw measurements (CSV), correctness results, environment
 results/tables/         summary tables (CSV and Markdown) produced by analyze.py
 results/figures/        figures produced by analyze.py
 results/exploratory_unpinned/  first run without CPU pinning (kept, not used in the analysis)
-report/                 LaTeX source of the report and the figures it uses
+report/                 the research report (PDF)
 ```
 
 All three programs share the same command-line interface:

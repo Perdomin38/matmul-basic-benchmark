@@ -108,7 +108,7 @@ python run_benchmarks.py --sizes 100 200 --output-dir ../results/test_run
 
 ## Experimental protocol (summary)
 
-- Sizes n = 100, 200, 400, 800, 1600, 3200 (doubling, so cubic growth means ×8 per step).
+- Sizes n = 100, 200, 400, 800, 1600, 3200 (doubling, so cubic growth means 8 times longer per step).
 - Same input files for all languages; float64 everywhere; same i-j-k loop order.
 - Timed region: the triple loop only (input reading and result allocation are excluded).
 - Warm-up runs: C 1, Java 2 (JIT compilation), Python 1; then 5 measured runs.

@@ -1,0 +1,17 @@
+order,language,n,setting,phase,run,time_s
+1,java,1600,pinned,warmup,1,31.091
+1,java,1600,pinned,warmup,2,31.523
+1,java,1600,pinned,measured,1,26.825
+1,java,1600,pinned,measured,2,26.986
+2,c,1600,pinned,warmup,1,3.026
+2,c,1600,pinned,measured,1,3.025
+2,c,1600,pinned,measured,2,2.998
+2,c,1600,pinned,measured,3,3.016
+3,c,1600,pinned,warmup,1,3.037
+3,c,1600,pinned,measured,1,3.02
+3,c,1600,pinned,measured,2,2.986
+3,c,1600,pinned,measured,3,3.016
+4,java,1600,pinned,warmup,1,25.337
+4,java,1600,pinned,warmup,2,25.758
+4,java,1600,pinned,measured,1,25.396
+4,java,1600,pinned,measured,2,25.164

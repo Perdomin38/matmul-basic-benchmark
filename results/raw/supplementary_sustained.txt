@@ -1,6 +1,9 @@
-Supplementary check (run after the main benchmark, 2026-10-07).
+Supplementary check "sustained" (run after the main benchmark, 2026-10-07).
 Python implementation, n = 800, 0 warm-ups, 1 measured run per process, four processes
 launched back to back (alternating without / with P-core pinning + high priority).
+Data: supplementary_sustained.csv, transcribed from this run's console output (the run was
+made before scripts/supplementary_checks.py existed; "python supplementary_checks.py
+sustained" repeats the same procedure).
 
 process  setting   time_s     checksum
 1        unpinned  31.904     -10145.17208412008

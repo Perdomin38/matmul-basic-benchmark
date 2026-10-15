@@ -51,6 +51,7 @@ def main():
         f"C flags: {' '.join(C_FLAGS)}",
         f"Java: {version([JAVA, '-version']).splitlines()[0]} / "
         f"{version([JAVA, '-version']).splitlines()[-1]}",
+        f"Java compiler: {version([JAVAC, '-version'])}",
         f"JVM flags: {' '.join(JVM_FLAGS)}",
         f"Python: {platform.python_implementation()} {platform.python_version()} ({PYTHON})",
         f"NumPy (inputs and reference only): {numpy.__version__}",

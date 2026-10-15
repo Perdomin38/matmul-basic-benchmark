@@ -1,0 +1,32 @@
+Supplementary check "cooldown" (scripts/supplementary_checks.py cooldown).
+
+Question: is Java's jump at n = 1600 (6.5 times C in the main benchmark) caused by the fixed
+run order of the main benchmark? There, C ran all its sizes first (including 600 s at
+n = 3200), so Java at n = 1600 started on a laptop that had been under full load for about
+10 minutes, while C at n = 1600 had run after only a few seconds of load.
+
+Setup: n = 1600, same inputs, binaries and settings as the main benchmark (pinned to logical
+CPUs 0-11, high priority, C 1 warm-up, Java 2 warm-ups). Four processes in the order
+Java, C, C, Java, each started after a 60 s idle pause (cool-down).
+C: 3 measured runs per process; Java: 2 measured runs per process.
+
+Data (every warm-up and measured run):
+  supplementary_cooldown_first_run.csv  session 1, 2026-10-15, run with an earlier ad-hoc
+                                        version of the script (same procedure)
+  supplementary_cooldown.csv            session 2, 2026-10-15, run with
+                                        scripts/supplementary_checks.py cooldown
+
+Medians per process (s)       Java         C            Java / C
+  main benchmark              26.79        4.12         6.5
+  session 1                   26.91 25.28  3.02  3.02   8.4 - 8.9
+  session 2                   25.82 25.28  5.04  5.55   4.6 - 5.1
+
+Observations:
+- Java's own time at n = 1600 is stable: 25-27 s in every session, cold or after load,
+  i.e. 6.2-6.6 ns per multiply-add against 0.97 ns at n = 800. The first warm-up after the
+  cool-down already took 26-31 s. The jump is therefore not caused by the run order or by
+  the laptop heating up.
+- C's time at n = 1600 varies much more between sessions (3.0, 4.1 and 5.0-5.6 s, i.e.
+  0.74-1.36 ns per multiply-add) than inside one process (IQR 5.5 % in the main run), so the
+  exact Java/C ratio at this size is uncertain (4.6 to 8.9), although Java is always several
+  times slower than C at n = 1600 and only 1.2-1.6 times up to n = 800.

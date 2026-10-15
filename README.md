@@ -22,6 +22,7 @@ scripts/generate_inputs.py  writes the shared input matrices data/inputs/A_n.bin
 scripts/verify.py       correctness tests (known answer, identity, zero, NumPy reference)
 scripts/run_benchmarks.py   runs every (language, n) configuration, measures time and memory
 scripts/analyze.py      builds tables (results/tables) and figures (results/figures)
+scripts/supplementary_checks.py  the two supplementary checks of Section 5 (not in the tables)
 results/raw/            raw measurements (CSV), correctness results, environment, log,
                         and two supplementary checks (sustained load; Java vs C at n=1600 after cool-down)
 results/tables/         summary tables (CSV and Markdown) produced by analyze.py
@@ -80,6 +81,18 @@ because the seed is fixed, and `build.py` recompiles the programs.
 `--output-dir` it overwrites `results/raw/benchmark_raw.csv` and `runs_status.csv`, so a
 quick test should write elsewhere:
 `python run_benchmarks.py --sizes 100 200 --output-dir ../results/test_run`.
+
+### Supplementary checks (Section 5 of the report)
+
+```bash
+python supplementary_checks.py sustained   # Python n=800, 4 processes back to back (~4 min)
+python supplementary_checks.py cooldown    # Java, C, C, Java at n=1600 after 60 s pauses (~7 min)
+```
+
+Each writes every run to `results/raw/supplementary_<check>.csv`; the matching
+`supplementary_*.txt` files describe the setup and the observation. The sustained-load
+check was first run on 2026-10-07 before this script existed; its CSV was transcribed from
+that run's console output, and the script repeats the same procedure.
 
 ### Quick check (about 1 minute)
 

@@ -22,7 +22,8 @@ scripts/generate_inputs.py  writes the shared input matrices data/inputs/A_n.bin
 scripts/verify.py       correctness tests (known answer, identity, zero, NumPy reference)
 scripts/run_benchmarks.py   runs every (language, n) configuration, measures time and memory
 scripts/analyze.py      builds tables (results/tables) and figures (results/figures)
-results/raw/            raw measurements (CSV), correctness results, environment, log
+results/raw/            raw measurements (CSV), correctness results, environment, log,
+                        and two supplementary checks (sustained load; Java vs C at n=1600 after cool-down)
 results/tables/         summary tables (CSV and Markdown) produced by analyze.py
 results/figures/        figures produced by analyze.py
 results/exploratory_unpinned/  first run without CPU pinning (kept, not used in the analysis)
